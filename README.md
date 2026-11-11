@@ -21,6 +21,27 @@ ai-workflow-chatbot/
     └── test_cases.json      # سوال‌های تست
 ```
 
+## رابط کاربری Angular + API پایتون
+
+پروژه حالا دو بخش دارد: ترمینال (بالا) و وب.
+
+- بک‌اند: `api.py` با FastAPI — همان کدهای `chatbot/`، پشت `POST /api/chat`
+- فرانت‌اند: `frontend/` با Angular — صفحه چت فارسی، نمایش توکن‌ها و نشان ابزار
+
+```bash
+# ترمینال 1 — بک‌اند پایتون
+uvicorn api:app --reload --port 8000
+
+# ترمینال 2 — فرانت‌اند Angular
+cd frontend
+npm install
+npm start
+# بعد باز کن: http://localhost:4200
+```
+
+جریان داده خیلی ساده است:
+`Angular (پورت 4200) -> POST http://localhost:8000/api/chat -> chatbot/chat.py -> مدل توکن هاربور -> جواب برمی‌گردد`
+
 ## نصب و اجرا (5 دقیقه)
 
 ```bash

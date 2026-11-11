@@ -3,3 +3,5 @@ python-dotenv
 tavily-python
 langsmith
 tiktoken
+fastapi
+uvicorn

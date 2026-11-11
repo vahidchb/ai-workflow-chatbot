@@ -1,0 +1,15 @@
+.chat { max-width: 720px; margin: 0 auto; padding: 16px; font-family: Tahoma, sans-serif; }
+header { text-align: center; }
+header h1 { font-size: 22px; margin-bottom: 4px; }
+header p { color: #555; margin: 4px 0; }
+.tokens { font-size: 13px; color: #0066cc; }
+.messages { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; min-height: 300px; }
+.message { padding: 10px 14px; border-radius: 12px; max-width: 85%; white-space: pre-wrap; }
+.message.user { background: #0066cc; color: #fff; align-self: flex-start; }
+.message.bot { background: #f0f0f0; align-self: flex-end; }
+.tool { display: block; font-size: 12px; color: #006600; margin-top: 6px; }
+footer { display: flex; gap: 8px; }
+footer input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+footer button { padding: 10px 16px; border: none; border-radius: 8px; background: #0066cc; color: #fff; cursor: pointer; }
+footer button.example { background: #eee; color: #333; }
+footer button:disabled { opacity: 0.5; }
