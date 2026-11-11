@@ -26,6 +26,12 @@ export class App {
   maxTokens = signal(4000);
   sessionId: string | null = null;
 
+  // درصد پر شدن توکن‌ها، برای نوار بالای صفحه
+  tokenPercent(): number {
+    if (this.maxTokens() === 0) return 0;
+    return Math.min(100, Math.round((this.tokens() / this.maxTokens()) * 100));
+  }
+
   send() {
     const text = this.input().trim();
     if (!text || this.loading()) return;

@@ -1,8 +1,11 @@
 <main class="chat">
   <header>
-    <h1>چت‌بات آموزشی AI Engineering</h1>
-    <p>Tool calling با Tavily • مدیریت توکن • Compaction • Eval با LangSmith</p>
-    <p class="tokens">توکن‌ها: {{ tokens() }} / {{ maxTokens() }}</p>
+    <h1>چت‌بات آموزشی</h1>
+    <p class="subtitle">Tool calling • مدیریت توکن • Compaction • Eval با LangSmith</p>
+    <div class="token-bar">
+      <div class="token-fill" [style.width.%]="tokenPercent()"></div>
+    </div>
+    <p class="tokens">توکن‌ها: {{ tokens() }} از {{ maxTokens() }}</p>
   </header>
 
   <section class="messages">
@@ -15,20 +18,24 @@
       </div>
     }
     @if (loading()) {
-      <div class="message bot"><p>در حال فکر کردن…</p></div>
+      <div class="message bot typing"><p>در حال فکر کردن…</p></div>
     }
   </section>
 
   <footer>
-    <input
-      [(ngModel)]="input"
-      (keyup.enter)="send()"
-      placeholder="پیامت را بنویس…"
-      [disabled]="loading()"
-    />
-    <button (click)="send()" [disabled]="loading()">ارسال</button>
-    <button class="example" (click)="askExample()" [disabled]="loading()">
-      مثال: سرچ مقاله
-    </button>
+    <div class="composer">
+      <input
+        [(ngModel)]="input"
+        (keyup.enter)="send()"
+        placeholder="پیامت را بنویس…"
+        [disabled]="loading()"
+      />
+      <button (click)="send()" [disabled]="loading()">ارسال</button>
+    </div>
+    <div class="example-row">
+      <button (click)="askExample()" [disabled]="loading()">
+        مثال: مقاله جدید درباره هوش مصنوعی پیدا کن
+      </button>
+    </div>
   </footer>
 </main>
